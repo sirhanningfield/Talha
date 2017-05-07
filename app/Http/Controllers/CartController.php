@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Product;
+use Session;
 
 class CartController extends Controller
 {
@@ -13,7 +14,7 @@ class CartController extends Controller
     {
 	    $product = Product::find($id);
 
-		$item = Cart::add(['id' => $product->id, 'name' => $product->title, 'qty' => 1, 'price' => $product->price]);
+		$item = Cart::add(['id' => $product->id, 'name' => $product->name, 'qty' => 1, 'price' => $product->price]);
 
 		Session::flash('Success','The product was successfully added to cart');
 		
@@ -46,6 +47,13 @@ class CartController extends Controller
    	
    }
 
+   public function DeleteCartSession()
+   {
+   	# code...
+   	Cart::destroy();
+   	
+   	return redirect()->route('home');
+   }
 
 
 }

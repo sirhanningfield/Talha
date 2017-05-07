@@ -86,6 +86,9 @@ class AdminController extends Controller
     public function edit($id)
     {
         //
+        $product = Product::find($id);
+
+        return view('product.edit')->withProduct($product);
     }
 
     /**
@@ -98,6 +101,26 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request,array(
+            'name'=>'required',
+            'details'=>'required|min:10',
+            'price'=>'required',
+            'image'=>'required'
+            ));
+        $product = Product::find($id); 
+        $product->name = $request->name;
+        $product->details = $request->details;
+        $product->price = $request->price;
+        $product->status = $request->status;
+        $product->image = $request->image;
+        
+        $product->save();
+
+        //Add a session message for success
+        Session::flash('Success','The product was edited');
+
+         // redirect
+        return redirect()->route('products.index');
     }
 
     /**

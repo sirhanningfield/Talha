@@ -40,3 +40,8 @@ Route::match(['post','put'],'updateitem/{rowId}',[
 Route::post('deleteitem/{rowId}',[
 	'as'=>'item.delete',
 	'uses'=>'CartController@DeleteItem']);
+
+Route::get('delete-cart',[
+	'as'=>'cart.delete',
+	'uses'=>'CartController@DeleteCartSession'
+	]);

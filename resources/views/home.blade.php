@@ -36,7 +36,7 @@
                                 
                                 <p>{{$product->details}}</p>
                                 <p><h3>$ {{$product->price}}</h3></p>
-                                <p><a href="#" class="btn btn-default" role="button">View Details</a> <a href="#" class="btn btn-warning" role="button">Add to Cart</a></p>
+                                <p><a href="{{route('products.show',$product->id)}}" class="btn btn-default" role="button">View Details</a> <a href="{{ route('cart.add',$product->id) }}" class="btn btn-warning" role="button">Add to Cart</a></p>
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                                 <h3>{{$product->name}}</h3>
                                 <p>{{$product->details}}</p>
                                 <p><h3>$ {{$product->price}}</h3></p>
-                                <p><a href="#" class="btn btn-default" role="button">View Details</a> <a href="#" class="btn btn-warning" role="button">Add to Cart</a></p>
+                                <p><a href="{{route('products.show',$product->id)}}" class="btn btn-default" role="button">View Details</a> <a href="{{ route('cart.add',$product->id) }}" class="btn btn-warning" role="button">Add to Cart</a></p>
                             </div>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                     
                     <p>{{$product->details}}</p>
                     <p><h3>$ {{$product->price}}</h3></p>
-                    <p><a href="#" class="btn btn-default" role="button">View Details</a> <a href="#" class="btn btn-warning" role="button">Add to Cart</a></p>
+                    <p><a href="{{route('products.show',$product->id)}}" class="btn btn-default" role="button">View Details</a> <a href="{{ route('cart.add',$product->id) }}" class="btn btn-warning" role="button">Add to Cart</a></p>
                   </div>
                 </div>
             </div>
